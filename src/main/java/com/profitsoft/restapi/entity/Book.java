@@ -11,6 +11,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -18,6 +19,7 @@ import lombok.experimental.FieldDefaults;
 
 @Entity
 @Table(name = "books")
+@Builder
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @AllArgsConstructor
 @NoArgsConstructor
@@ -40,6 +42,12 @@ public class Book {
 
     @Column(nullable = false)
     String genre;
+
+    @Column(nullable = false)
+    Integer circulation;
+
+    @Column(nullable = false)
+    Integer pageAmount;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "author_id", nullable = false)

@@ -8,4 +8,5 @@ spring:
     url: jdbc:postgresql://localhost:5432/library
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: validate
+    show-sql: true
