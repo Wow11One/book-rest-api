@@ -1,4 +1,6 @@
 spring:
+  liquibase:
+    enabled: true
   application:
     name: rest-api
   datasource:
@@ -9,4 +11,4 @@ spring:
   jpa:
     hibernate:
       ddl-auto: validate
-    show-sql: true
+

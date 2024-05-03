@@ -21,4 +21,8 @@ public interface BookRepository extends JpaRepository<Book, Long>, JpaSpecificat
     @Override
     @EntityGraph(attributePaths = {"author"})
     List<Book> findAll(Specification<Book> specification, Sort sort);
+
+    @Override
+    @EntityGraph(attributePaths = {"author"})
+    List<Book> findAll();
 }

@@ -35,10 +35,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
-import java.io.IOException;
 import java.io.InputStream;
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -76,9 +73,9 @@ public class BookServiceImpl implements BookService {
     @Transactional(readOnly = true)
     public ListBookDto getList(QueryBookDto queryBookDto) {
         Specification<Book> specification = createFilter(
-                queryBookDto.getAuthorId(),
-                queryBookDto.getGenre(),
-                queryBookDto.getPublicationHouse()
+                queryBookDto.getFilterDto().getAuthorId(),
+                queryBookDto.getFilterDto().getGenre(),
+                queryBookDto.getFilterDto().getPublicationHouse()
         );
         Pageable pageable = PageRequest.of(
                 queryBookDto.getPage() - 1,
@@ -119,12 +116,13 @@ public class BookServiceImpl implements BookService {
 
     public UploadBookDto uploadBooksFromJson(MultipartFile multipartFile) {
         try (InputStream inputStream = multipartFile.getInputStream()) {
-
             // I used a custom class to read json file, because it was required by our task
             BookUploadService bookUploadService = getBookUploadService();
             List<Book> booksToBeSaved = bookUploadService.analyse(inputStream);
             bookRepository.saveAll(booksToBeSaved);
+
             log.info("{} books saved successfully", booksToBeSaved.size());
+
             return UploadBookDto.builder()
                     .successful(bookUploadService.getSuccessfulCount())
                     .failed(bookUploadService.getFailedCount())

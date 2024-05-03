@@ -158,6 +158,7 @@ public class BookUploadServiceImpl implements BookUploadService {
     private boolean isValidated(RequestBookDto requestBookDto) {
         Validator validator = factory.getValidator();
         Set<ConstraintViolation<RequestBookDto>> violations = validator.validate(requestBookDto);
+
         if (!violations.isEmpty()) {
             violations.forEach(violation -> log.error(violation.getMessage()));
             return false;

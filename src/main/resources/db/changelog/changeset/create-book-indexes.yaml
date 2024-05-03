@@ -1,0 +1,26 @@
+databaseChangeLog:
+    # I decided to create the index for each column that is used in filtering
+    # because I found out that postgres is able to merge indexes
+  - changeSet:
+      id: create-book-indexes
+      author: Volodymyr Havryliuk
+      changes:
+        - createIndex:
+            indexName: idx_books_author_id
+            tableName: books
+            columns:
+              - column:
+                  name: author_id
+        - createIndex:
+            indexName: idx_books_genre
+            tableName: books
+            columns:
+              - column:
+                  name: genre
+        - createIndex:
+            indexName: idx_books_publication_house
+            tableName: books
+            columns:
+              - column:
+                  name: publication_house
+

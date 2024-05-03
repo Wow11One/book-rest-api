@@ -26,10 +26,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-
 @RestController
 @RequestMapping("/api/books")
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
@@ -60,7 +56,7 @@ public class BookController {
         bookService.getReport(filterDto, response);
     }
 
-    @GetMapping("/upload")
+    @PostMapping("/upload")
     public UploadBookDto uploadBooksFromJson(@RequestParam("file") MultipartFile multipartFile) {
         return bookService.uploadBooksFromJson(multipartFile);
     }

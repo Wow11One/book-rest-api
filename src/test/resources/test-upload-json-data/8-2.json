@@ -1,0 +1,92 @@
+﻿[
+  {
+    "title": "Koloniya",
+    "yearPublished": 2022,
+    "publicationHouse": "Bloomsbury",
+    "genre": "fantasy",
+    "circulation": 5000,
+    "pageAmount": 900,
+    "authorId": 1
+  },
+  {
+    "title": "Atlas shrugged",
+    "yearPublished": 1967,
+    "publicationHouse": "folio",
+    "genre": "fiction",
+    "circulation": 15000,
+    "pageAmount": 400,
+    "authorId": 1
+  },
+  {
+    "title": "The witcher 3",
+    "yearPublished": 1957,
+    "publicationHouse": "our book",
+    "genre": "fiction",
+    "circulation": 15000,
+    "pageAmount": 400,
+    "authorId": 1
+  },
+  {
+    "title": "Harry Potter and the Philosopher's Stone",
+    "yearPublished": 1997,
+    "publicationHouse": "folio",
+    "genre": "fantasy",
+    "circulation": 500,
+    "pageAmount": 223,
+    "authorId": 1
+  },
+  {
+    "title": "To Kill a Mockingbird",
+    "yearPublished": 1960,
+    "publicationHouse": "folio",
+    "genre": "fiction",
+    "circulation": 3,
+    "pageAmount": 281,
+    "authorId": 1
+  },
+  {
+    "title": "1984",
+    "yearPublished": 1949,
+    "publicationHouse": "ababagalamaga",
+    "genre": "dystopian",
+    "circulation": 150000,
+    "pageAmount": 328,
+    "authorId": 2000
+  },
+  {
+    "title": "The Hobbit",
+    "yearPublished": 1937,
+    "publicationHouse": "ababagalamaga",
+    "genre": "fantasy",
+    "circulation": 100000,
+    "pageAmount": 310,
+    "authorId": 1
+  },
+  {
+    "title": "Pride and Prejudice",
+    "yearPublished": 1813,
+    "publicationHouse": "folio",
+    "genre": "romance",
+    "circulation": 20000,
+    "pageAmount": 279,
+    "authorId": 1
+  },
+  {
+    "title": "The Catcher in the Rye",
+    "yearPublished": 1951,
+    "publicationHouse": "folio",
+    "genre": "coming-of-age",
+    "circulation": 25000,
+    "pageAmount": 277,
+    "authorId": 1
+  },
+  {
+    "title": "The Lord of the Rings",
+    "yearPublished": 1954,
+    "publicationHouse": "ababagalamaga",
+    "genre": "fantasy",
+    "circulation": 150000,
+    "pageAmount": 1178,
+    "authorId": 1
+  }
+]

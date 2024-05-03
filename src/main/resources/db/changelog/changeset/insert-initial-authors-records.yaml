@@ -1,0 +1,65 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-initial-authors-records
+      author: Volodymyr Havryliuk
+      changes:
+        - insert:
+            tableName: authors
+            columns:
+              - column:
+                  name: name
+                  value: "Maksym Kidruk"
+              - column:
+                  name: birth_year
+                  value: "1975"
+              - column:
+                  name: country
+                  value: "Ukraine"
+        - insert:
+            tableName: authors
+            columns:
+              - column:
+                  name: name
+                  value: "Taras Shevchenko"
+              - column:
+                  name: birth_year
+                  value: "1814"
+              - column:
+                  name: country
+                  value: "Ukraine"
+        - insert:
+            tableName: authors
+            columns:
+              - column:
+                  name: name
+                  value: "Ayn Rand"
+              - column:
+                  name: birth_year
+                  value: "1924"
+              - column:
+                  name: country
+                  value: "USA"
+        - insert:
+            tableName: authors
+            columns:
+              - column:
+                  name: name
+                  value: "Joanne Rowling"
+              - column:
+                  name: birth_year
+                  value: "1978"
+              - column:
+                  name: country
+                  value: "the UK"
+        - insert:
+            tableName: authors
+            columns:
+              - column:
+                  name: name
+                  value: "Andrzej Sapkowski"
+              - column:
+                  name: birth_year
+                  value: "1965"
+              - column:
+                  name: country
+                  value: "Poland"

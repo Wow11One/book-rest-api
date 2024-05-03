@@ -1,0 +1,92 @@
+[
+  {
+    "title": "The Alchemist",
+    "yearPublished": 1988,
+    "publicationHouse": "folio",
+    "genre": "fiction",
+    "circulation": 30000000,
+    "pageAmount": 197,
+    "authorId": 1
+  },
+  {
+    "title": "The Da Vinci Code",
+    "yearPublished": 2003,
+    "publicationHouse": "folio",
+    "genre": "mystery",
+    "circulation": 8000000,
+    "pageAmount": 454,
+    "authorId": 1
+  },
+  {
+    "title": "The Road",
+    "yearPublished": 2006,
+    "publicationHouse": "Harper & Brothers",
+    "genre": "dystopian",
+    "circulation": 1000000,
+    "pageAmount": 287,
+    "authorId": 1
+  },
+  {
+    "title": "The Girl with the Dragon Tattoo",
+    "yearPublished": 2005,
+    "publicationHouse": "Harper & Brothers",
+    "genre": "thriller",
+    "circulation": 8000000,
+    "pageAmount": 590,
+    "authorId": 1
+  },
+  {
+    "title": "The Hunger Games",
+    "yearPublished": 2008,
+    "publicationHouse": "Harper & Brothers",
+    "genre": "dystopian",
+    "circulation": 35000000,
+    "pageAmount": 374,
+    "authorId": 1
+  },
+  {
+    "title": "The Shining",
+    "yearPublished": 1977,
+    "publicationHouse": "folio",
+    "genre": "horror",
+    "circulation": 6000000,
+    "pageAmount": 447,
+    "authorId": 1
+  },
+  {
+    "title": "Gone Girl",
+    "yearPublished": 2012,
+    "publicationHouse": "Crown Publishing Group",
+    "genre": "suspense",
+    "circulation": 2000000,
+    "pageAmount": 419,
+    "authorId": 1222222
+  },
+  {
+    "title": "The Martian",
+    "yearPublished": 2011,
+    "publicationHouse": "Crown Publishing Group",
+    "genre": "science-fiction",
+    "circulation": -1000000,
+    "pageAmount": 369,
+    "authorId": 1
+  },
+  {
+    "title": "The Help",
+    "yearPublished": 2009,
+    "publicationHouse": "",
+    "genre": "drama",
+    "circulation": 10000000,
+    "pageAmount": 451,
+    "authorId": 1
+  },
+  {
+    "title": "The Kite Runner",
+    "yearPublished": 2003,
+    "publicationHouse": "folio",
+    "genre": "drama",
+    "circulation": 8000000,
+    "pageAmount": 371,
+    "authorId": 1
+  }
+]

@@ -1,7 +1,18 @@
 package com.profitsoft.restapi.service;
 
-import org.springframework.stereotype.Service;
+import com.profitsoft.restapi.dto.author.AuthorDto;
 
-@Service
+import java.util.List;
+
 public interface AuthorService {
+
+    AuthorDto create(AuthorDto authorDto);
+
+    List<AuthorDto> findAll();
+
+    AuthorDto findOneById(Long id);
+
+    AuthorDto update (AuthorDto authorDto, Long id);
+
+    void delete(Long id);
 }

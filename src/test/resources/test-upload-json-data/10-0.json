@@ -1,0 +1,92 @@
+[
+  {
+    "title": "The Hobbit",
+    "yearPublished": 1937,
+    "publicationHouse": "folio",
+    "genre": "fantasy",
+    "circulation": 100000,
+    "pageAmount": 300,
+    "authorId": 1
+  },
+  {
+    "title": "The exit",
+    "yearPublished": 1960,
+    "publicationHouse": "ababagalamaga",
+    "genre": "drama",
+    "circulation": 5000000,
+    "pageAmount": 281,
+    "authorId": 2
+  },
+  {
+    "title": "1984",
+    "yearPublished": 1949,
+    "publicationHouse": "ababagalamaga",
+    "genre": "dystopian",
+    "circulation": 250000,
+    "pageAmount": 328,
+    "authorId": 1
+  },
+  {
+    "title": "Pride and Prejudice",
+    "yearPublished": 1813,
+    "publicationHouse": "ababagalamaga",
+    "genre": "romance",
+    "circulation": 2000000,
+    "pageAmount": 432,
+    "authorId": 1
+  },
+  {
+    "title": "The Catcher in the Rye",
+    "yearPublished": 1951,
+    "publicationHouse": "folio",
+    "genre": "coming-of-age",
+    "circulation": 650000,
+    "pageAmount": 277,
+    "authorId": 1
+  },
+  {
+    "title": "The Great Gatsby",
+    "yearPublished": 1925,
+    "publicationHouse": "Harper & Brothers",
+    "genre": "classic",
+    "circulation": 350000,
+    "pageAmount": 180,
+    "authorId": 1
+  },
+  {
+    "title": "The Lord of the Rings",
+    "yearPublished": 1954,
+    "publicationHouse": "Harper & Brothers",
+    "genre": "fantasy",
+    "circulation": 150000,
+    "pageAmount": 1178,
+    "authorId": 1
+  },
+  {
+    "title": "Harry Potter and the Philosopher's Stone",
+    "yearPublished": 1997,
+    "publicationHouse": "folio",
+    "genre": "fantasy",
+    "circulation": 500000,
+    "pageAmount": 223,
+    "authorId": 1
+  },
+  {
+    "title": "The Picture of Dorian Gray",
+    "yearPublished": 1890,
+    "publicationHouse": "folio",
+    "genre": "gothic",
+    "circulation": 100000,
+    "pageAmount": 254,
+    "authorId": 1
+  },
+  {
+    "title": "Moby-Dick",
+    "yearPublished": 1851,
+    "publicationHouse": "folio",
+    "genre": "adventure",
+    "circulation": 25000,
+    "pageAmount": 635,
+    "authorId": 1
+  }
+]

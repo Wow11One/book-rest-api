@@ -1,0 +1,92 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-author-table
+      author: Volodymyr Havryliuk
+      changes:
+        - createTable:
+            tableName: authors
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(200)
+                  constraints:
+                    nullable: false
+                    unique: true
+              - column:
+                  name: birth_year
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: country
+                  type: varchar(200)
+                  constraints:
+                    nullable: false
+  - changeSet:
+      id: create-book-table
+      author: Volodymyr Havryliuk
+      changes:
+        - createTable:
+            tableName: books
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: title
+                  type: varchar(200)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: year_published
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: publication_house
+                  type: varchar(200)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: genre
+                  type: varchar(200)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: circulation
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: page_amount
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: author_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+  - changeSet:
+      id: add-foreign-key
+      author: Volodymyr Havryliuk
+      changes:
+        - addForeignKeyConstraint:
+              constraintName: fk_authors_books
+              baseTableName: books
+              baseColumnNames: author_id
+              referencedTableName: authors
+              referencedColumnNames: id
+              onDelete: cascade
+              onUpdate: cascade

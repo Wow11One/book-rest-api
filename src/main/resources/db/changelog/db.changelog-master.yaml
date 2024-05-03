@@ -1,0 +1,7 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/changeset/create-db-schema.yaml
+  - include:
+      file: db/changelog/changeset/create-book-indexes.yaml
+  - include:
+      file: db/changelog/changeset/insert-initial-authors-records.yaml
