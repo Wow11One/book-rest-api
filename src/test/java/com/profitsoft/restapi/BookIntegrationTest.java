@@ -58,8 +58,8 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 
 @SpringBootTest
 @AutoConfigureMockMvc(addFilters = false)
-@Testcontainers
 @FieldDefaults(level = AccessLevel.PRIVATE)
+@Testcontainers
 public class BookIntegrationTest {
 
     @Container
@@ -87,7 +87,7 @@ public class BookIntegrationTest {
     }
 
     @BeforeEach
-    public void init() {
+    public void setUp() {
         author = new Author(null, "test author", 1999, "ukraine", null);
         authorRepository.save(author);
     }

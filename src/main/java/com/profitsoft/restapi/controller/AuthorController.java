@@ -39,7 +39,7 @@ public class AuthorController {
     }
 
     @GetMapping("/{id}")
-    public AuthorDto findAll(@PathVariable Long id) {
+    public AuthorDto findById(@PathVariable Long id) {
         return authorService.findOneById(id);
     }
 

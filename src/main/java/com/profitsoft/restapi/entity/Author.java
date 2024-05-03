@@ -10,6 +10,8 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -19,11 +21,13 @@ import java.util.List;
 
 @Entity
 @Table(name = "authors")
+@Builder
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
+@EqualsAndHashCode
 public class Author {
 
     @Id
@@ -39,6 +43,7 @@ public class Author {
     @Column(nullable = false)
     String country;
 
+    @EqualsAndHashCode.Exclude
     @OneToMany(mappedBy = "author")
     List<Book> books;
 }
