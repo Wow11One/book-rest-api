@@ -78,7 +78,7 @@
     "genre": "gothic",
     "circulation": 100000,
     "pageAmount": 254,
-    "authorId": 4
+    "authorId": 1
   },
   {
     "title": "Moby-Dick",
@@ -87,6 +87,6 @@
     "genre": "adventure",
     "circulation": 25000,
     "pageAmount": 635,
-    "authorId": 5
+    "authorId": 1
   }
 ]
