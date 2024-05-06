@@ -40,13 +40,16 @@
 </dl>
 
 <h2>Api description</h2>
-<p>All endpoints start with the '/api' prefix</p>
+<p>
+All endpoints start with the '/api' prefix. All books' and authors' data
+are just some mock random data, so don't take it serious.
+</p>
 
 <h3>Book endpoints</h3>
 
 <h4><b>POST</b> /api/books</h4>
 <p>Creates a new Book entity record. All request fields 
-are validated (string values should be not blank and numeric - not null.
+are validated. String values should be not blank and numeric - not null.
 The <b>circulation</b> field value should be at least 100.
 The <b>pageAmount</b> field value should be at least 10.
 </p>
@@ -67,7 +70,7 @@ The <b>pageAmount</b> field value should be at least 10.
 }
 ```
 
-<h5>Response status</h5>
+<h6>Response status</h6>
 <b>201 created</b>
 <h6>Response body</h6>
 
@@ -644,6 +647,199 @@ You can download it using postman.
 </p>
 
 <hr/>
+
+<h3>Author endpoints</h3>
+
+<h4>GET /api/authors</h4>
+<p>
+Returns a list of all Author entity records available in the database.
+Initially, there are 5 authors that created by liquibase script.
+</p>
+
+<h4>Usage examples</h4>
+<h5>Successful request</h5>
+
+<h6>Response status</h6>
+<b>200 OK</b>
+
+<h6>Response body</h6>
+
+```json
+[
+  {
+    "id": 1,
+    "name": "Maksym Kidruk",
+    "birthYear": 1975,
+    "country": "Ukraine"
+  },
+  {
+    "id": 2,
+    "name": "Taras Shevchenko",
+    "birthYear": 1814,
+    "country": "Ukraine"
+  },
+  {
+    "id": 3,
+    "name": "Ayn Rand",
+    "birthYear": 1924,
+    "country": "USA"
+  },
+  {
+    "id": 4,
+    "name": "Joanne Rowling",
+    "birthYear": 1978,
+    "country": "the UK"
+  },
+  {
+    "id": 5,
+    "name": "Andrzej Sapkowski",
+    "birthYear": 1965,
+    "country": "Poland"
+  }
+]
+```
+
+<hr/>
+
+<h4>POST /api/authors</h4>
+<p>
+Adds an Author entity to the DB.
+Author's name should be unique(duplicates are not allowed to be created).
+</p>
+
+<h4>Usage examples</h4>
+<h5>Successful request</h5>
+
+<h6>Request body</h6>
+
+```json
+  {
+    "name": "New author",
+    "birthYear": 1975,
+    "country": "Ukraine"
+  }
+```
+
+<h6>Response status</h6>
+<b>201 Created</b>
+
+<h6>Response body</h6>
+
+```json
+{
+  "id": 6,
+  "name": "New author",
+  "birthYear": 1975,
+  "country": "Ukraine"
+}
+```
+
+<hr/>
+
+<h5>Failed request (with the name that already exists)</h5>
+
+<h6>Request body</h6>
+
+```json
+  {
+    "name": "New author",
+    "birthYear": 1975,
+    "country": "Ukraine"
+  }
+```
+
+<h6>Response status</h6>
+<b>400 Bad Request</b>
+
+<h6>Response body</h6>
+
+```json
+{
+  "message": "Author with such name already exists"
+}
+```
+
+<hr/>
+
+<h4>PUT /api/authors/:id</h4>
+<p>
+Changes Author record by ID,
+Considering the control of the uniqueness of names.
+</p>
+
+<h4>Usage examples</h4>
+<h5>Successful request</h5>
+
+<h6>Request pathname</h6>
+<p>PUT <b>/api/authors/6</b> (or any existing id)</p>
+
+<h6>Request body</h6>
+
+```json
+  {
+    "name": "Updated author",
+    "birthYear": 1999,
+    "country": "USA"
+  }
+```
+
+<h6>Response status</h6>
+<b>200 OK</b>
+
+<h6>Response body</h6>
+
+```json
+{
+  "id": 6,
+  "name": "Updated author",
+  "birthYear": 1999,
+  "country": "USA"
+}
+```
+
+<hr/>
+
+<h5>Failed request (with the name that already exists)</h5>
+
+<h6>Request pathname</h6>
+<p>PUT <b>/api/authors/6</b> (or any existing id)</p>
+
+<h6>Request body</h6>
+
+```json
+  {
+    "name": "Maksym Kidruk",
+    "birthYear": 1975,
+    "country": "Ukraine"
+  }
+```
+
+<h6>Response status</h6>
+<b>400 Bad Request</b>
+
+<h6>Response body</h6>
+
+```json
+{
+  "message": "Author with such name already exists"
+}
+```
+
+<hr/>
+
+<h4>DELETE /api/authors/:id</h4>
+<p>
+Deletes Author entity record by ID
+</p>
+
+<h4>Usage examples</h4>
+<h5>Successful request</h5>
+
+<h6>Request pathname</h6>
+<p>DELETE <b>/api/authors/6</b> (or any existing id)</p>
+
+<h6>Response status</h6>
+<b>204 No content</b>
 
 <h2>Contacts</h2>
 <p> If you have any questions, you can contact me at any time in Telegram: <b>+380632125159</b></p>
