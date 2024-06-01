@@ -96,7 +96,7 @@ public class ReportServiceImpl implements ReportService {
         cells.get(1).setCellValue(book.getTitle());
         cells.get(2).setCellValue(book.getYearPublished());
         cells.get(3).setCellValue(book.getPublicationHouse());
-        cells.get(4).setCellValue(book.getGenre());
+        cells.get(4).setCellValue(book.getGenre().getName());
         cells.get(5).setCellValue(book.getCirculation());
         cells.get(6).setCellValue(book.getPageAmount());
         cells.get(7).setCellValue(book.getAuthor().getId());

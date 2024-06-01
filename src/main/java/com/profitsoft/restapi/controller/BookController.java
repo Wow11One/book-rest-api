@@ -9,11 +9,15 @@ import com.profitsoft.restapi.dto.book.UploadBookDto;
 import com.profitsoft.restapi.service.BookService;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -30,14 +34,49 @@ import org.springframework.web.multipart.MultipartFile;
 @RequestMapping("/api/books")
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 @RequiredArgsConstructor
+@Validated
 public class BookController {
 
     BookService bookService;
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public ResponseBookDto create(@Valid @RequestBody RequestBookDto requestBookDto) {
-        return bookService.create(requestBookDto);
+    public ResponseBookDto create(
+            @NotBlank(message = "title should not be blank")
+            @RequestParam("title")
+            String title,
+            @NotNull(message = "yearPublished should not be null")
+            @RequestParam("yearPublished")
+            Integer yearPublished,
+            @NotBlank(message = "publicationHouse should not be blank")
+            @RequestParam("publicationHouse")
+            String publicationHouse,
+            @NotNull(message = "genre should not be null")
+            @RequestParam("genreId")
+            Long genreId,
+            @NotNull(message = "circulation should not be null")
+            @Min(value = 100, message = "circulation value should be more than 100")
+            @RequestParam("circulation")
+            Integer circulation,
+            @NotNull(message = "pageAmount should not be null")
+            @Min(value = 10, message = "pageAmount value should be more than 10")
+            @RequestParam("pageAmount")
+            Integer pageAmount,
+            @NotNull(message = "book should have the author id")
+            @RequestParam("authorId")
+            Long authorId,
+            @RequestParam("image")
+            MultipartFile image) {
+        return bookService.create(
+                title,
+                yearPublished,
+                publicationHouse,
+                circulation,
+                pageAmount,
+                genreId,
+                authorId,
+                image
+        );
     }
 
     @GetMapping("/{id}")

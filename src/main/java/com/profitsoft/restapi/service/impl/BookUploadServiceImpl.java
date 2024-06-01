@@ -53,6 +53,7 @@ public class BookUploadServiceImpl implements BookUploadService {
     final Integer SEARCH_LIMIT;
     final ValidatorFactory factory;
     final String AUTHOR_ID = "authorId";
+    final String GENRE_ID = "genreId";
     final BookMapper bookMapper;
     JsonParser parser;
     @Getter
@@ -116,7 +117,7 @@ public class BookUploadServiceImpl implements BookUploadService {
             return;
         }
         if (parser.currentToken() != JsonToken.START_OBJECT ||
-                Objects.equals(countIterator, SEARCH_LIMIT)) {
+            Objects.equals(countIterator, SEARCH_LIMIT)) {
             throw new JsonFormatException(parser,
                     "not correct json format: object should start from start_object token");
         }
@@ -185,8 +186,8 @@ public class BookUploadServiceImpl implements BookUploadService {
             case Book_.PUBLICATION_HOUSE:
                 requestBookDto.setPublicationHouse(parser.getText());
                 break;
-            case Book_.GENRE:
-                requestBookDto.setGenre(parser.getText());
+            case GENRE_ID:
+                requestBookDto.setGenreId(parser.getLongValue());
                 break;
             case Book_.CIRCULATION:
                 requestBookDto.setCirculation(parser.getIntValue());

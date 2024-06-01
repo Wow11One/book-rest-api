@@ -5,3 +5,7 @@ databaseChangeLog:
       file: db/changelog/changeset/create-book-indexes.yaml
   - include:
       file: db/changelog/changeset/insert-initial-authors-records.yaml
+  - include:
+      file: db/changelog/changeset/create-genre-table.yaml
+  - include:
+      file: db/changelog/changeset/change-book-schema.yaml

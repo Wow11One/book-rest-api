@@ -1,0 +1,36 @@
+databaseChangeLog:
+  - changeSet:
+      id: change-book-schema
+      author: Volodymyr Havryliuk
+      changes:
+        - dropColumn:
+            tableName: books
+            columns:
+              - column:
+                  name: genre
+        - addColumn:
+            tableName: books
+            columns:
+              - column:
+                  name: image
+                  type: varchar(200)
+                  defaultOnNull: true
+                  defaultValue: https://res.cloudinary.com/dbkgbcqcf/image/upload/v1716977471/default_cover_t07lqf.jpg
+                  constraints:
+                    nullable: false
+              - column:
+                  name: genre_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+                  defaultOnNull: true
+                  defaultValue: "1"
+        - addForeignKeyConstraint:
+            baseTableName: books
+            baseColumnNames: genre_id
+            constraintName: fk_genres_books
+            referencedTableName: genres
+            referencedColumnNames: id
+            onUpdate: cascade
+            onDelete: cascade
+

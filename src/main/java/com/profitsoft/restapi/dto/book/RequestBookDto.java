@@ -30,9 +30,6 @@ public class RequestBookDto {
     @NotBlank(message = "publicationHouse should not be blank")
     String publicationHouse;
 
-    @NotBlank(message = "genre should not be blank")
-    String genre;
-
     @NotNull(message = "circulation should not be null")
     @Min(value = 100, message = "circulation value should be more than 100")
     Integer circulation;
@@ -40,6 +37,9 @@ public class RequestBookDto {
     @NotNull(message = "pageAmount should not be null")
     @Min(value = 10, message = "pageAmount value should be more than 10")
     Integer pageAmount;
+
+    @NotNull(message = "genre should not be null")
+    Long genreId;
 
     @NotNull(message = "book should have the author id")
     Long authorId;

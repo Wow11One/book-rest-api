@@ -2,6 +2,7 @@ package com.profitsoft.restapi.dto.book;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.profitsoft.restapi.dto.author.SimpleAuthorDto;
+import com.profitsoft.restapi.dto.genre.GenreDto;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -24,9 +25,13 @@ public class SimpleBookDto {
 
     String title;
 
-    String genre;
-
     String publicationHouse;
+
+    String image;
+
+    @EqualsAndHashCode.Exclude
+    @JsonProperty("genre")
+    GenreDto genreDto;
 
     @EqualsAndHashCode.Exclude
     @JsonProperty("author")

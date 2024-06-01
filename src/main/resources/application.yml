@@ -11,4 +11,8 @@ spring:
   jpa:
     hibernate:
       ddl-auto: validate
+cloudinary:
+  cloud_name: dbkgbcqcf
+  api_key: 463961816584397
+  api_secret: VXmTJHTHnvMvW3zg9VsgD0aki9w
 

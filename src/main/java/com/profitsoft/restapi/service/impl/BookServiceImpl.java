@@ -7,13 +7,18 @@ import com.profitsoft.restapi.dto.book.ResponseBookDto;
 import com.profitsoft.restapi.dto.book.RequestBookDto;
 import com.profitsoft.restapi.dto.book.SimpleBookDto;
 import com.profitsoft.restapi.dto.book.UploadBookDto;
+import com.profitsoft.restapi.entity.Author;
 import com.profitsoft.restapi.entity.Book;
 import com.profitsoft.restapi.entity.Book_;
+import com.profitsoft.restapi.entity.Genre;
 import com.profitsoft.restapi.exception.ApiException;
 import com.profitsoft.restapi.mapper.BookMapper;
+import com.profitsoft.restapi.repository.AuthorRepository;
 import com.profitsoft.restapi.repository.BookRepository;
+import com.profitsoft.restapi.repository.GenreRepository;
 import com.profitsoft.restapi.service.BookService;
 import com.profitsoft.restapi.service.BookUploadService;
+import com.profitsoft.restapi.service.ImageService;
 import com.profitsoft.restapi.service.ReportService;
 import com.profitsoft.restapi.service.specification.BookSpecs;
 import jakarta.servlet.ServletOutputStream;
@@ -49,14 +54,47 @@ import java.util.Optional;
 public class BookServiceImpl implements BookService {
 
     BookRepository bookRepository;
+    AuthorRepository authorRepository;
+    GenreRepository genreRepository;
     BookMapper bookMapper;
     ReportService reportService;
+    ImageService imageService;
     Sort sort = Sort.by(Sort.Direction.ASC, Book_.ID);
 
     @Override
     @Transactional
-    public ResponseBookDto create(RequestBookDto requestBookDto) {
-        Book book = bookMapper.toEntity(requestBookDto);
+    public ResponseBookDto create(
+            String title,
+            Integer yearPublished,
+            String publicationHouse,
+            Integer circulation,
+            Integer pageAmount,
+            Long genreId,
+            Long authorId,
+            MultipartFile image
+    ) {
+        Author author = authorRepository.findById(authorId).orElseThrow(
+                () -> new NoSuchElementException("no author with such id exists")
+        );
+        Genre genre = genreRepository.findById(genreId).orElseThrow(
+                () -> new NoSuchElementException("no genre with such id exists")
+        );
+        String imageName = imageService.uploadImage(image);
+
+        if (imageName == null) {
+            throw new IllegalArgumentException("image format is not correct");
+        }
+
+        Book book = Book.builder()
+                .title(title)
+                .yearPublished(yearPublished)
+                .publicationHouse(publicationHouse)
+                .circulation(circulation)
+                .pageAmount(pageAmount)
+                .author(author)
+                .genre(genre)
+                .image(imageName)
+                .build();
 
         bookRepository.save(book);
         return bookMapper.toResponseDto(book);

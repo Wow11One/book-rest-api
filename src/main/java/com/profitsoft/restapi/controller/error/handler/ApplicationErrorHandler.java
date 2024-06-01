@@ -26,18 +26,6 @@ public class ApplicationErrorHandler {
         return ExceptionDto.of(exception.getMessage());
     }
 
-    @ExceptionHandler({
-            HttpMessageNotReadableException.class,
-            IllegalArgumentException.class,
-            JsonFormatException.class,
-            IOException.class,
-            JsonParseException.class
-    })
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public ExceptionDto handleBadRequest(Exception exception) {
-        return ExceptionDto.of(exception.getMessage());
-    }
-
     @ExceptionHandler(ApiException.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public ExceptionDto handleInternalError(ApiException exception) {
@@ -60,5 +48,12 @@ public class ApplicationErrorHandler {
         }
 
         return ExceptionDto.of(errorMessage.toString());
+    }
+
+    @ExceptionHandler(Exception.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ExceptionDto handleBadRequest(Exception exception) {
+        return ExceptionDto.of(exception.getMessage());
+
     }
 }

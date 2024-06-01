@@ -1,0 +1,43 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-genre-table
+      author: Volodymyr Havryliuk
+      changes:
+        - createTable:
+            tableName: genres
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(100)
+                  constraints:
+                    nullable: false
+                    unique: true
+  - changeSet:
+      id: insert-initial-genre-records
+      author: Volodymyr Havryliuk
+      changes:
+        - insert:
+            tableName: genres
+            columns:
+              - column:
+                  name: name
+                  value: "Fiction"
+        - insert:
+            tableName: genres
+            columns:
+              - column:
+                  name: name
+                  value: "Comedy"
+        - insert:
+            tableName: genres
+            columns:
+              - column:
+                  name: name
+                  value: "Dystopia"

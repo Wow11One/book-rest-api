@@ -43,9 +43,6 @@ public class Book {
     String publicationHouse;
 
     @Column(nullable = false)
-    String genre;
-
-    @Column(nullable = false)
     Integer circulation;
 
     @Column(nullable = false)
@@ -53,6 +50,12 @@ public class Book {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "author_id", nullable = false)
-    @OnDelete(action = OnDeleteAction.CASCADE)
     Author author;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "genre_id")
+    Genre genre;
+
+    @Column(nullable = false)
+    String image;
 }

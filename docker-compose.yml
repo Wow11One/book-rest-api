@@ -9,24 +9,35 @@ services:
       - "5432:5432"
     expose:
       - 5432
+    networks:
+      - network
   pgadmin:
     image: dpage/pgadmin4
     container_name: pgadmin4_container
     restart: always
     ports:
-      - "8888:80"
+      - "80:80"
     environment:
       PGADMIN_DEFAULT_EMAIL: user-name@domain-name.com
       PGADMIN_DEFAULT_PASSWORD: strong-password
-  app:
+    networks:
+      - network
+  book-app:
     restart: always
     build:
       dockerfile: Dockerfile
       context: .
-    container_name: app
+    container_name: book-app
     ports:
       - "8080:8080"
     depends_on:
       - db
     environment:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://db/library
+    networks:
+      - network
+
+networks:
+  network:
+    driver: bridge
+    name: book_app_network

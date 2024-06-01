@@ -12,7 +12,16 @@ import org.springframework.web.multipart.MultipartFile;
 
 public interface BookService {
 
-    ResponseBookDto create(RequestBookDto requestBookDto);
+    ResponseBookDto create(
+            String title,
+            Integer yearPublished,
+            String publicationHouse,
+            Integer circulation,
+            Integer pageAmount,
+            Long genreId,
+            Long authorId,
+            MultipartFile image
+    );
 
     ResponseBookDto findById(Long id);
 

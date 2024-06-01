@@ -2,6 +2,7 @@ package com.profitsoft.restapi.dto.book;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.profitsoft.restapi.dto.author.SimpleAuthorDto;
+import com.profitsoft.restapi.dto.genre.GenreDto;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -22,11 +23,14 @@ public class ResponseBookDto {
 
     String publicationHouse;
 
-    String genre;
-
     Integer circulation;
 
     Integer pageAmount;
+
+    String image;
+
+    @JsonProperty("genre")
+    GenreDto genreDto;
 
     @JsonProperty("author")
     SimpleAuthorDto simpleAuthorDto;
