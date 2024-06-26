@@ -56,6 +56,6 @@ public class Book {
     @JoinColumn(name = "genre_id")
     Genre genre;
 
-    @Column(nullable = false)
+    @Column
     String image;
 }

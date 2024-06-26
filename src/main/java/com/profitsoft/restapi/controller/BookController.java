@@ -65,7 +65,7 @@ public class BookController {
             @NotNull(message = "book should have the author id")
             @RequestParam("authorId")
             Long authorId,
-            @RequestParam("image")
+            @RequestParam(name = "image", required = false)
             MultipartFile image) {
         return bookService.create(
                 title,

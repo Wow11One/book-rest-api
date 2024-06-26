@@ -22,7 +22,7 @@ public class CloudinaryImageServiceImpl implements ImageService {
 
     @Override
     public String uploadImage(MultipartFile file) {
-        if (file.isEmpty()) {
+        if (file == null || file.isEmpty()) {
             return null;
         }
         try {

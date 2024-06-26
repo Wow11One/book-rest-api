@@ -3,7 +3,7 @@ package com.profitsoft.restapi.service.specification;
 import com.profitsoft.restapi.entity.Author_;
 import com.profitsoft.restapi.entity.Book;
 import com.profitsoft.restapi.entity.Book_;
-import jakarta.persistence.criteria.Predicate;
+import com.profitsoft.restapi.entity.Genre_;
 import org.springframework.data.jpa.domain.Specification;
 
 import java.util.List;
@@ -16,9 +16,9 @@ public class BookSpecs {
                 builder.equal(root.get(Book_.AUTHOR).get(Author_.ID), authorId);
     }
 
-    public static Specification<Book> equalsGenre(String genre) {
+    public static Specification<Book> equalsGenreId(Long genreId) {
         return (root, query, builder) ->
-                builder.equal(root.get(Book_.GENRE), genre);
+                builder.equal(root.get(Book_.GENRE).get(Genre_.ID), genreId);
     }
 
     public static Specification<Book> equalsPublicationHouse(String publicationHouse) {

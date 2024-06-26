@@ -20,5 +20,5 @@ public class FilterDto {
 
     Long authorId;
     String publicationHouse;
-    String genre;
+    Long genreId;
 }
