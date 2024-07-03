@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.FieldDefaults;
+import org.springframework.web.multipart.MultipartFile;
 
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Builder
@@ -43,4 +44,6 @@ public class RequestBookDto {
 
     @NotNull(message = "book should have the author id")
     Long authorId;
+
+    MultipartFile image;
 }
