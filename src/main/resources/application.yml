@@ -2,7 +2,7 @@ spring:
   liquibase:
     enabled: true
   application:
-    name: rest-api
+    name: book-service
   datasource:
     driver-class-name: org.postgresql.Driver
     username: postgres
@@ -17,15 +17,26 @@ spring:
     password: password
     host: rabbitmq
     port: 5672
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        instanceId: ${spring.application.name}:${random.value}
+        health-check-interval: 10s
+        health-check-path: /actuator/health
+        prefer-ip-address: true
 
 cloudinary:
   cloud_name: dbkgbcqcf
   api_key: 463961816584397
   api_secret: VXmTJHTHnvMvW3zg9VsgD0aki9w
 
+management:
+  health:
+    rabbit:
+      enabled: false
+
 rabbitmq:
   mailQueue:
     name: mail.queue
-
-
-

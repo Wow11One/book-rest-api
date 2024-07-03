@@ -124,16 +124,7 @@ public class BookServiceImpl implements BookService {
     @Transactional(readOnly = true)
     public ResponseBookDto findById(Long id) {
         try {
-            String message = objectMapper.writeValueAsString(
-                    new MailDto(
-                            "vova",
-                            "hello",
-                            "You created a book with an id #" + id
-                    ));
-
-            rabbitTemplate.convertAndSend(mailQueueName, message);
             Book book = findEntityById(id);
-
             return bookMapper.toResponseDto(book);
         } catch (Exception exception) {
             throw new RuntimeException(exception.getMessage());

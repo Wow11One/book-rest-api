@@ -2,7 +2,6 @@ package com.profitsoft.restapi.config;
 
 import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -20,19 +19,6 @@ public class AppConfig implements WebMvcConfigurer {
 
     @Value("${cloudinary.api_secret}")
     String apiSecret;
-
-    @Override
-    public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/**")
-                .allowedMethods(
-                        "POST",
-                        "GET",
-                        "PUT",
-                        "DELETE",
-                        "OPTIONS"
-                );
-    }
-
 
 
     @Bean

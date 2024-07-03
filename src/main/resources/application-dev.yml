@@ -2,7 +2,7 @@ spring:
   liquibase:
     enabled: true
   application:
-    name: rest-api
+    name: book-service
   datasource:
     driver-class-name: org.postgresql.Driver
     username: postgres
@@ -17,6 +17,12 @@ spring:
     host: localhost
     port: 5672
     connection-timeout: 15s
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        instanceId: ${spring.application.name}:${random.value}
 
 cloudinary:
   cloud_name: dbkgbcqcf
